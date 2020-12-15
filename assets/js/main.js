@@ -9,13 +9,24 @@ let app = new Vue ({
             "https://static.photocdn.pt/images/articles/2017/04/28/iStock-546424192.jpg"
         ]
     },
+
+    /*Bonus ufficiale:
+Facciamo in modo che il nostro slider scorra automaticamente in avanti,
+e ogni 3 secondi visualizzi un immagine differente.
+Tip: possiamo usare una lifecycle Hook per inserire un nostro script quando l'istanza Vue é stata caricata.*/
+
+    created: function(){
+        this.nextImg();
+    },
     methods: {
+        nextImg(){
+            this.timer = setInterval(this.next, 3000);
+          },
         next(){
             this.counter++;
             if(this.counter === this.images.length){
                 this.counter = 0;
             }
-
         },
         prev(){
             if(this.counter > 0){
@@ -25,4 +36,16 @@ let app = new Vue ({
             }
         }
     }
+    
 });
+
+/*
+Possibili extra Bonus:
+cliccando sui pallini visualizzeremo l'immagine corrispondente
+*/
+
+
+
+/*
+cliccando sulle frecce della tastiera sinista e destra scorriamo tra le immagini
+*/

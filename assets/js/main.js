@@ -16,15 +16,16 @@ e ogni 3 secondi visualizzi un immagine differente.
 Tip: possiamo usare una lifecycle Hook per inserire un nostro script quando l'istanza Vue é stata caricata.*/
 
     created: function(){
-        this.nextImg();
+        setInterval(this.next, 3000);
+        //this.nextImg();
     },
     methods: {
-        nextImg(){
-            this.timer = setInterval(this.next, 3000);
-          },
+        // nextImg(){
+        //     this.timer = setInterval(this.next, 3000);
+        //   },
         next(){
             this.counter++;
-            if(this.counter === this.images.length){
+            if(this.counter > this.images.length -1){
                 this.counter = 0;
             }
         },

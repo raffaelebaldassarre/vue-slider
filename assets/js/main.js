@@ -18,6 +18,16 @@ Tip: possiamo usare una lifecycle Hook per inserire un nostro script quando l'is
     created: function(){
         setInterval(this.next, 3000);
         //this.nextImg();
+        document.addEventListener("keyup",e =>{
+            if(e.key === "ArrowRight"){
+                this.next();
+            }
+        }),
+        document.addEventListener("keyup",e =>{
+            if(e.key === "ArrowLeft"){
+                this.prev();
+            }
+        })
     },
     methods: {
         // nextImg(){
@@ -39,14 +49,3 @@ Tip: possiamo usare una lifecycle Hook per inserire un nostro script quando l'is
     }
     
 });
-
-/*
-Possibili extra Bonus:
-cliccando sui pallini visualizzeremo l'immagine corrispondente
-*/
-
-
-
-/*
-cliccando sulle frecce della tastiera sinista e destra scorriamo tra le immagini
-*/
